@@ -1,0 +1,28 @@
+# infrastructure/main.tf
+
+provider "docker" {
+  host = "tcp://localhost:2376"
+}
+
+resource "docker_image" "app_image" {
+  name = "your_username/your_app_image"
+  build {
+    context    = "./app"
+    dockerfile = "./app/Dockerfile"
+  }
+}
+
+resource "docker_container" "app_container" {
+  name  = "your_app_container"
+  image = docker_image.app_image.latest
+  ports {
+    internal = 8000
+  }
+  volumes {
+    host_path      = "./app/src"
+    container_path = "/app"
+  }
+  command     = ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+  depends_on  = [docker_image.app_image]
+  network_mode = "bridge"
+}

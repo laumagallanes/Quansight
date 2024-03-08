@@ -1,0 +1,13 @@
+fastapi
+typing
+pydantic
+passlib[bcrypt]
+uvicorn[standad]
+python-multipart
+brotli
+certifi
+requests
+flask
+psutil
+Werkzeug
+python-jose[cryptography]
