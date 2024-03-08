@@ -14,6 +14,7 @@ provider "docker" {
 resource "docker_image" "app_image" {
   name = "test1"
   build {
+##need to change this to a variable path
     context = "/home/magallanes/Documentos/Quansight/interview-assignment-infra-laumagallanes/app/"
     dockerfile = "" #/home/magallanes/Documentos/Quansight/interview-assignment-infra-laumagallanes/app/Dockerfile"
   }
