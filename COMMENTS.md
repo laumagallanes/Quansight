@@ -1,4 +1,9 @@
-##Nginx.cong
+What I accomplished in these days (6-7 hours of work) was configuring the Nginx server. The app/src had to be modified as a missing library (typing) caused the app not to run. After creating the app/Dockerfile, I successfully tested the application with  the correct answers of tokens and messages. The main.tf is missing deploying the Nginx container to test SSL but you can change things on the app and see them in real time, without restart. I considered it better to send what I could complete and not continue investing time without a response.
+
+
+
+
+##Nginx.conf
 The first server block listens on port 80 and redirects all HTTP requests to their HTTPS equivalent using a 301 permanent redirect.
 
 The second server block listens on port 443 for HTTPS connections. It includes SSL certificate and key paths.
