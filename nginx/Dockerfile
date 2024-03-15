@@ -4,4 +4,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 
  COPY ./files/localhost.crt /etc/nginx/ssl/localhost.crt
- COPY ./files/localhost.key /etc/nginx/ssl/localhost.key
+ COPY ./files/localhost.key /etc/nginx/ssl/localhost.key 
+ EXPOSE 80 
+ EXPOSE 443
+ CMD ["nginx", "-g", "daemon off;"]
